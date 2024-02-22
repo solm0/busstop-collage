@@ -4,7 +4,6 @@ const randomColor = ['green','blue','orange','brown','pink'];
 
 function setup() {
   const cnv = createCanvas(1200, 600);
-  cnv.position(0,50);
 }
 
 
@@ -32,35 +31,35 @@ function pc() {
   line(x-50, y, x-50, y-130);
   line(x+50, y, x+50, y-130);
   
-  line(x+50, y-130, x, map(mouseY, height-200, 0, y-200, y-300));
-  line(x-50, y-130, x, map(mouseY, height-200, 0, y-200, y-300));
+  line(x+50, y-130, x, map(mouseY, height-200, 0, y-180, y-300));
+  line(x-50, y-130, x, map(mouseY, height-200, 0, y-180, y-300));
   
     // body
-  line(x, map(mouseY, height-200, 0, y-200, y-300), x, map(mouseY, height-200, 0, y-200, y-300)-200);
+  line(x, map(mouseY, height-200, 0, y-180, y-300), x, map(mouseY, height-200, 0, y-180, y-300)-200);
   
     // face
   noStroke();
   fill('black');
-  rect(x,map(mouseY,height,0,y-200,y-300)-200,160);
+  rect(x,map(mouseY,height,0,y-200,y-300)-180,160);
   
   // eyeball
   fill('white');
   strokeWeight(0);
-  rect(x-40,map(mouseY,height,0,y-200,y-300)-200,50);
-  rect(x+40,map(mouseY,height,0,y-200,y-300)-200,50);
+  rect(x-40,map(mouseY,height,0,y-200,y-300)-180,50);
+  rect(x+40,map(mouseY,height,0,y-200,y-300)-180,50);
   
   push();
   beginClip();
   fill('white');
   strokeWeight(0);
-  rect(x-40,map(mouseY,height,0,y-200,y-300)-200,50);
-  rect(x+40,map(mouseY,height,0,y-200,y-300)-200,50);
+  rect(x-40,map(mouseY,height,0,y-200,y-300)-180,50);
+  rect(x+40,map(mouseY,height,0,y-200,y-300)-180,50);
   endClip();
   
     // pupil
   fill('black');
-  rect(map(mouseX,0,width,x-60,x-10),map(mouseY,height,0,y-190,y-310)-200,30);
-  rect(map(mouseX,0,width,x+10,x+60),map(mouseY,height,0,y-190,y-310)-200,30);
+  rect(map(mouseX,0,width,x-60,x-10),map(mouseY,height,0,y-190,y-310)-180,30);
+  rect(map(mouseX,0,width,x+10,x+60),map(mouseY,height,0,y-190,y-310)-180,30);
   pop();
 }
 
