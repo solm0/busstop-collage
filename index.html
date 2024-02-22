@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-    <title>정류장</title>
+    <title>기약 없는 기다림</title>
     <style>
         * {
             padding: 0;
@@ -19,9 +19,24 @@
             background-color: rgb(13, 12, 12);
             align-items: flex-end;
         }
+        #refreshButton {
+            position: absolute;
+            width: 180px;
+            height: 80px;
+            font-family: 'Gulim';
+            font-weight: bold;
+            font-size: 30px;
+            background-color: rgb(220,220,220);
+            top: 200px;
+
+            &:hover {
+                background-color: gray;
+            }
+        }
     </style>
 </head>
 <body>
-   <script src="./script.js"></script>
+    <button id="refreshButton">몇 분 뒤...</button>
+    <script src="./script.js"></script>
 </body>
 </html>

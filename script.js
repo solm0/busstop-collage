@@ -129,3 +129,10 @@ class Npc {
 const npc1 = new Npc();
 const npc2 = new Npc();
 const npc3 = new Npc();
+
+
+
+document.getElementById('refreshButton').addEventListener('click', function() {
+  // 페이지 새로고침
+  location.reload();
+});
