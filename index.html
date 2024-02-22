@@ -9,6 +9,8 @@
         * {
             padding: 0;
             margin: 0;
+            font-family: 'Gulim';
+            user-select: none;
         }
         body {
             position: absolute;
@@ -23,7 +25,6 @@
             position: absolute;
             width: 180px;
             height: 80px;
-            font-family: 'Gulim';
             font-weight: bold;
             font-size: 30px;
             background-color: rgb(220,220,220);
@@ -33,10 +34,84 @@
                 background-color: gray;
             }
         }
+        .board {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 20px solid gray;
+            background-color: black;
+            bottom: 620px;
+            left: calc(50% + 300px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column; 
+            padding: 20px 10px;
+            font-size: 20px;
+            line-height: 15px;
+            filter: blur(3px);
+
+            &:hover {
+                filter: none;
+            }
+        }
+        p:nth-child(odd) {
+            color: lime;
+            align-self: flex-start;
+        }
+        p:nth-child(even) {
+            color: orange;
+            align-self: flex-end;
+            transform: translate(0, -20px);
+        }
+        .slide {
+            position: absolute;
+            color: rgb(220,220,220);
+            overflow: hidden;
+            word-break: keep-all;
+            bottom: 10px;
+            height: 20px;
+        }
+        .slide2 {
+            position: absolute;
+            color: rgb(220,220,220);
+            left: 80px;
+            height: 20px;
+            bottom: 10px;
+            white-space: nowrap;
+            width: 170px;
+            overflow: hidden;
+        }
+        .slide2 > p {
+            position: absolute;
+            animation: slide 10s infinite linear;
+        }
+        @keyframes slide {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -200px;
+            }
+        }
+        em {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <button id="refreshButton">몇 분 뒤...</button>
+    <div class="board">
+        <p>123-4</p>
+        <p>곧도착</p>
+        <p>456</p>
+        <p>곧도착</p>
+        <p>78-9</p>
+        <p>곧도착</p>
+        <div class="slide">곧도착:</div>
+        <div class="slide2">
+            <p>123-4 <em>(혼잡)</em>, 456<em>(혼잡)</em>, 78-9<em>(혼잡)</em></p>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
