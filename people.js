@@ -20,7 +20,6 @@ function setup() {
 
 
 function draw() {
-  frameRate(60);
   background(50);
   raindrops.push(new Raindrop(random(0,windowWidth), 50, 5, random(50, 200)));
   Engine.update(engine);
@@ -130,26 +129,26 @@ class Npc {
       // face
     noStroke();
     fill(this.randomColor);
-    rect(this.xPos, this.yPos-250,160);
+    rect(this.xPos, this.yPos-230,160);
 
       // eyeball
     fill('white');
     strokeWeight(0);
-    rect(this.xPos-40, this.yPos-250,50);
-    rect(this.xPos+40, this.yPos-250,50);
+    rect(this.xPos-40, this.yPos-230,50);
+    rect(this.xPos+40, this.yPos-230,50);
     
     push();
     beginClip();
     fill('white');
     strokeWeight(0);
-    rect(this.xPos-40, this.yPos-250,50);
-    rect(this.xPos+40, this.yPos-250,50);
+    rect(this.xPos-40, this.yPos-230,50);
+    rect(this.xPos+40, this.yPos-230,50);
     endClip();
 
       // pupil
     fill('black');
-    rect(map(mouseX, 0, width,this.xPos-60, this.xPos - 10), map(mouseY, height, 0, y-120, y-140)-270, 30);
-    rect(map(mouseX, 0, width, this.xPos+10, this.xPos+60), map(mouseY, height, 0, y-120, y-140)-270, 30);
+    rect(map(mouseX, 0, width,this.xPos-60, this.xPos - 10), map(mouseY, height, 0, y-120, y-140)-250, 30);
+    rect(map(mouseX, 0, width, this.xPos+10, this.xPos+60), map(mouseY, height, 0, y-120, y-140)-250, 30);
     pop();
   }
 }

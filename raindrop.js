@@ -26,7 +26,7 @@ function Raindrop(x, y, w, h) {
         rotate(angle);
         rectMode(CENTER);
         noStroke();
-        fill(225);
+        fill(128);
         rect(0, 0, w, h);
         pop();
     }
