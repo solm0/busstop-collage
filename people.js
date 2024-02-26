@@ -8,15 +8,31 @@ var Engine = Matter.Engine,
 var engine;
 var world;
 var raindrops = [];
+var station;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  engine = Engine.create();
+  world = engine.world;
+  engine.gravity.scale = 0.03;
 }
 
 
 function draw() {
+  frameRate(60);
   background(50);
+  raindrops.push(new Raindrop(random(0,windowWidth), 50, 5, random(50, 200)));
+  Engine.update(engine);
+  for (var i = 0; i < raindrops.length; i++) {
+    raindrops[i].show();
+    if (raindrops[i].isOffScreen()) {
+      raindrops[i].removeFromWorld();
+      raindrops.splice(i,1);
+      i--;
+  }
+  }
+  console.log(raindrops.length, world.bodies.length);
   
   rectMode(CENTER);
   fill(220);
