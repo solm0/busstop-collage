@@ -1,21 +1,32 @@
-const x = 200;
-const y = 550;
+const y = 850;
 const randomColor = ['green','blue','orange','brown','pink'];
 
+
+var Engine = Matter.Engine,
+    World = Matter.World,
+    Bodies = Matter.Bodies;
+var engine;
+var world;
+var raindrops = [];
+
+
 function setup() {
-  const cnv = createCanvas(1200, 600);
+  createCanvas(windowWidth, windowHeight);
 }
 
 
 function draw() {
-  background(220);
+  background(50);
+  
   rectMode(CENTER);
+  fill(220);
+  rect(windowWidth / 2, windowHeight - 300, 1200, 600);
   
     // chair
   stroke('black');
   strokeWeight(10); 
   strokeCap(SQUARE);
-  line(50,450,1150,450);
+  line(windowWidth/2-530,750,windowWidth/2+530,750);
   
   pc();
   npc1.npc();
@@ -24,6 +35,7 @@ function draw() {
 }
 
 function pc() {
+  const x = (windowWidth/2 -600) +200;
     //legs
   stroke('black');
   strokeCap(ROUND);
@@ -65,8 +77,8 @@ function pc() {
 
 class Npc {
   constructor() {
-    this.xPos = this.generateUniqueXPos();
-    this.yPos = 420;
+    this.xPos = window.innerWidth/2 - 600 + this.generateUniqueXPos();
+    this.yPos = 700;
     this.randomColor = randomColor[Math.floor(Math.random() * randomColor.length)];
   }
   
@@ -120,8 +132,8 @@ class Npc {
 
       // pupil
     fill('black');
-    rect(map(mouseX, 0, width,this.xPos-60, this.xPos - 10), map(mouseY, height, 0, y-120, y-140)-250, 30);
-    rect(map(mouseX, 0, width, this.xPos+10, this.xPos+60), map(mouseY, height, 0, y-120, y-140)-250, 30);
+    rect(map(mouseX, 0, width,this.xPos-60, this.xPos - 10), map(mouseY, height, 0, y-120, y-140)-270, 30);
+    rect(map(mouseX, 0, width, this.xPos+10, this.xPos+60), map(mouseY, height, 0, y-120, y-140)-270, 30);
     pop();
   }
 }
